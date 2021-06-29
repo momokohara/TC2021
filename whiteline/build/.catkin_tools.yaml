@@ -1,0 +1,6 @@
+devel_space: /home/hara/whiteline/devel
+install: false
+install_space: /home/hara/whiteline/install
+profile: default
+source_space: /home/hara/whiteline/src
+workspace: /home/hara/whiteline

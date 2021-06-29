@@ -1,0 +1,1 @@
+/home/hara/whiteline/devel/.private/whiteline_pkg/lib/pkgconfig/whiteline_pkg.pc

@@ -1,0 +1,12 @@
+Symlinking /home/hara/whiteline/devel/./local_setup.sh
+Symlinking /home/hara/whiteline/devel/./cmake.lock
+Symlinking /home/hara/whiteline/devel/./env.sh
+Symlinking /home/hara/whiteline/devel/./setup.sh
+Symlinking /home/hara/whiteline/devel/./local_setup.zsh
+Symlinking /home/hara/whiteline/devel/./setup.bash
+Symlinking /home/hara/whiteline/devel/./setup.zsh
+Symlinking /home/hara/whiteline/devel/./_setup_util.py
+Symlinking /home/hara/whiteline/devel/./local_setup.bash
+Symlinking /home/hara/whiteline/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/hara/whiteline/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Symlinking /home/hara/whiteline/devel/lib/pkgconfig/catkin_tools_prebuild.pc

@@ -1,0 +1,8 @@
+prefix=/home/hara/whiteline/install
+
+Name: whiteline_pkg
+Description: Description of whiteline_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

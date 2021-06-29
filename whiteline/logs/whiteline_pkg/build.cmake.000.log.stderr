@@ -1,0 +1,15 @@
+[31m[1mCMake Error[0m at /home/hara/ros_catkin_ws/install_isolated/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
+  Could not find a package configuration file provided by
+  "cv_bridge_tutorial" with any of the following names:
+
+    cv_bridge_tutorialConfig.cmake
+    cv_bridge_tutorial-config.cmake
+
+  Add the installation prefix of "cv_bridge_tutorial" to CMAKE_PREFIX_PATH or
+  set "cv_bridge_tutorial_DIR" to a directory containing one of the above
+  files.  If "cv_bridge_tutorial" provides a separate development package or
+  SDK, be sure it has been installed.
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:10 (find_package)
+
+
