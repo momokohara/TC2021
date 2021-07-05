@@ -26,7 +26,7 @@ class ObjectTracker():
         self._pub_pbject_image = rospy.Publisher("object", Image, queue_size=1)
         self._pub_cmdvel = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
 
-        self._sub_image = rospy.Subscriber("/camera/color/image_raw", Image, self._image_callback)
+        self._sub_image = rospy.Subscriber("/segmentated_image", Image, self._image_callback)
 
     def _image_callback(self, img):
         try:
@@ -120,16 +120,16 @@ class ObjectTracker():
             pass
 
     def _stop_threshold(self):
-        stop_threshold = 10
-        not_stop_range = self._captured_image.shape[0] - self._set_stop_threshold()
+        stop_threshold = 48
+        not_stop_range = self._captured_image.shape[0] - stop_threshold
         return not_stop_range
 
     def _move_zone(self):
-        if self._point_of_centroid <= self._stop_threshold():
+        if self._point_of_centroid[1] <= self._stop_threshold():
             return True
 
     def _stop_zone(self):
-        if self._point_of_centroid > self._stop_threshold():
+        if self._point_of_centroid[1] > self._stop_threshold():
             return True
 
     def _rotation_velocity(self):

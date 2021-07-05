@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import roslib
-import sys
 import rospy
 import cv2
 import numpy as np
@@ -12,6 +11,7 @@ from cv_bridge import CvBridge, CvBridgeError
 
 class image_converter:
     def __init__(self):
+        rospy.init_node('image_converter', anonymous=True)
         self.pub = rospy.Publisher("Momentimg_topic", Image, queue_size=1)
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber("segmentated_image",Image,self.callback)
@@ -24,8 +24,9 @@ class image_converter:
             print(e)
         
         input_image = np.array(frame, dtype=np.uint8)
+        size = input_image.shape
+        
         rects = self.process_image(input_image)
-
         cv2.waitKey(1)
     
 
@@ -49,7 +50,7 @@ class image_converter:
             print("contour is empty")
             cv2.waitKey(3)
             try:
-                self.pub.publish(self.bridge.cv2_to_imgmsg(mask, "bgr8"))
+                self.pub.publish(self.bridge.cv2_to_imgmsg(mask, "mono8"))
             except CvBridgeError as e:
                 print(e)
             
@@ -69,7 +70,8 @@ class image_converter:
             mu = cv2.moments(maxC)
             x, y = int(mu["m10"]/mu["m00"]), int(mu["m01"]/mu["m00"])
             moment_img = cv2.circle(image, (x, y), 4, 100, 2, 4)
-            
+            print(x, y)
+
 
             # ウインドウ表示
             cv2.imshow("Moment Image", moment_img)
@@ -83,8 +85,7 @@ class image_converter:
 
 
 if __name__ == '__main__':
-    ic = image_converter()
-    rospy.init_node('image_converter', anonymous=True)
+    image_converter()
     try:
         rospy.spin()
     except KeyboardInterrupt:
