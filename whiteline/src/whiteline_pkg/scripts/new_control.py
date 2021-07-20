@@ -174,9 +174,6 @@ class ObjectTracker():
 if __name__ == '__main__':
     rospy.init_node('object_tracking')
     ot = ObjectTracker()
-
-    rate = rospy.Rate(5)
-    while not rospy.is_shutdown():
-	rospy.Subscriber("/segmentated_image", Image, ot.callback, queue_size=1)
-        rate.sleep()
+    rospy.Subscriber("/segmentated_image", Image, ot.callback, queue_size=1)
+    ropy.spin()
 
